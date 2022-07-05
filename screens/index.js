@@ -13,5 +13,6 @@ export {
     SignIn,
     SignUp,
     Otp,
-    ForgotPassword
+    ForgotPassword,
+    
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity,ScrollView } from "react-native";
 import { AuthLayout } from "../";
 import { FONTS, COLORS, SIZES, images, icons } from "../../constants";
 import { FormInput, CustomSwitch, TextButton,TextIconButton } from "../../components";
@@ -14,6 +14,7 @@ const SignIn = ({ navigation }) => {
   const isEnableSignIn = () => email != "" && password != "" && error == "";
 
   return (
+    <ScrollView>
     <AuthLayout
       title="Let's Sign You In"
       subtitle="Welcome back, you've been missed"
@@ -21,7 +22,8 @@ const SignIn = ({ navigation }) => {
       <View
         style={{
           flex: 1,
-          marginTop: SIZES.padding*0.5 ,
+          marginTop: SIZES.padding,
+
         }}
       >
         {/* Form Inputs */}
@@ -103,7 +105,7 @@ const SignIn = ({ navigation }) => {
         <View
           style={{
             flexDirection: "row",
-            marginTop: SIZES.radius,
+            marginTop: SIZES.radius ,
             justifyContent: "space-between",
           }}
         >
@@ -129,7 +131,7 @@ const SignIn = ({ navigation }) => {
           buttonContainerStyle={{
             height: 55,
             alignItems: "center",
-            marginTop: SIZES.padding-10,
+            marginTop: SIZES.padding ,
             backgroundColor: isEnableSignIn()
               ? COLORS.primary
               : COLORS.transparentPrimary,
@@ -139,7 +141,7 @@ const SignIn = ({ navigation }) => {
         {/* SignUP */}
           <View style={{
             flexDirection: "row",
-            marginTop: SIZES.radius-5,
+            marginTop: SIZES.radius ,
             justifyContent: "center",
           }}>
             <Text
@@ -177,6 +179,7 @@ const SignIn = ({ navigation }) => {
                             alignItems: 'center',
                             borderRadius: SIZES.radius,
                             backgroundColor: COLORS.blue,
+                            marginTop: SIZES.padding*0.7,
                         }}
                         icon={icons.fb}
                         iconPosition="LEFT"
@@ -198,7 +201,7 @@ const SignIn = ({ navigation }) => {
                             alignItems: 'center',
                             borderRadius: SIZES.radius,
                             marginTop:SIZES.radius,
-                            backgroundColor: COLORS.lightGray1,
+                            backgroundColor: COLORS.gray2,
                         }}
                         icon={icons.google}
                         iconPosition="LEFT"
@@ -208,16 +211,14 @@ const SignIn = ({ navigation }) => {
                         label="Sign In with Google"
                         labelStyle={{
                             marginLeft:SIZES.radius,
-                            color: COLORS.darkGray2,
+                            color: COLORS.white,
                         }}
                         onPress={() => console.log('Google')}
                     />
                     
                 </View>
-
-
-
     </AuthLayout>
+    </ScrollView>
   );
 };
 

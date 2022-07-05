@@ -3,6 +3,7 @@ function isValidEmail(value) {
     return re.test(String(value).toLowerCase());
 }
 
+
 function validateEmail(value, setEmailError) {
     if (value == "") {
         setEmailError("")
@@ -10,10 +11,25 @@ function validateEmail(value, setEmailError) {
     else if (isValidEmail(value)) {
         setEmailError("")
     }
+    
     else {
         setEmailError("Invalid Email")
     }
 }
+
+function isvalidaPhoneNumber(value, setPhoneNumberError) 
+{
+  var phoneno = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+  if(value.match(phoneno))
+        {
+      return setPhoneNumberError('')
+        }
+      else
+        {
+            return setPhoneNumberError('Invalid Phone Number')
+        }
+}
+ 
 
 function validatePassword(value, setPasswordError) {
     if (value.length < 9) {
@@ -26,7 +42,9 @@ function validatePassword(value, setPasswordError) {
 const utils = {
     isValidEmail,
     validateEmail,
-    validatePassword
+    validatePassword,
+    isvalidaPhoneNumber
+     
 };
 
 export default utils;

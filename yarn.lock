@@ -3057,6 +3057,11 @@
   "resolved" "https://registry.npmjs.org/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz"
   "version" "1.0.1"
 
+"gender-options@^1.0.0":
+  "integrity" "sha512-qYQpH+x9+WprmmwajQT+HLquNZHu/9VIUlkpaYGQm1eXGofKEQPBKI/nCTIm92MTpA/kznhcsPsDfmxlk/Kkqw=="
+  "resolved" "https://registry.npmjs.org/gender-options/-/gender-options-1.0.0.tgz"
+  "version" "1.0.0"
+
 "gensync@^1.0.0-beta.2":
   "integrity" "sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg=="
   "resolved" "https://registry.npmjs.org/gensync/-/gensync-1.0.0-beta.2.tgz"
@@ -5338,6 +5343,13 @@
   dependencies:
     "shell-quote" "^1.6.1"
     "ws" "^7"
+
+"react-gender-input@^1.0.2":
+  "integrity" "sha512-IebnpV+40sFt19VoUlKk9e7mfk1pmntK1AE3w8WAWMcauSCRczPDz8SEXSX/SPJ7zuM1tOAYhFUYLbmYMAdHhg=="
+  "resolved" "https://registry.npmjs.org/react-gender-input/-/react-gender-input-1.0.2.tgz"
+  "version" "1.0.2"
+  dependencies:
+    "gender-options" "^1.0.0"
 
 "react-is@^16.12.0 || ^17.0.0", "react-is@^17.0.1":
   "integrity" "sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w=="

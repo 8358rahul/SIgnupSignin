@@ -19,11 +19,10 @@ const Otp = ({ navigation }) => {
                 return timer;
                 }
             })
-            return () => clearInterval(interval);
-        }, [ ])
- 
-         
-    }, 1000)
+            
+          }, 1000)
+          return () => clearInterval(interval);
+    }, []);
     
 
   return (
@@ -86,6 +85,48 @@ const Otp = ({ navigation }) => {
           />
         </View>
       </View>
+      {/* Footer */}
+
+      <View style={{
+
+      }}>
+        <TextButton  
+
+          label="Continue"
+          buttonContainerStyle={{
+            backgroundColor: COLORS.primary,
+            height:50,
+            alignItems: 'center',
+            borderRadius: SIZES.radius,
+          }}
+          onPress={() => console.log("Continue")}
+        />
+        <View style={{
+          marginTop: SIZES.padding,
+          aignItems: 'center',
+          justifyContent: 'center',
+
+        }}>
+          <Text
+          style={{color: COLORS.darkGray, ...FONTS.body3, textAlign: 'center'}}
+          >
+            By signing up, you agree to our,
+          </Text>
+          <TextButton  
+            label={`Terms of Service`}
+            buttonContainerStyle={{
+              backgroundColor: null,
+            }}
+            labelStyle={{
+              color: COLORS.primary,
+              ...FONTS.body3,
+            }}
+            onPress={() => console.log("Term and Service")}
+          />
+        </View>
+        
+      </View>
+
     </AuthLayout>
   );
 };

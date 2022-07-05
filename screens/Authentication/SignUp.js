@@ -8,12 +8,18 @@ import { utils } from "../../utils";
 const SignUp = ({navigation}) => {
   const [email, setemail] = React.useState("");
   const [userName, setUserName] = React.useState("");
+  const [number , setNumber] = React.useState("");
+  const [gender,setGender] = React.useState('')
   const [password, setPassword] = React.useState("");
   const [showPass, setShowPass] = React.useState(false);
+  const [address,setAddress] = React.useState('')
 
   const [emailError, setEmailError] = React.useState("");
   const [userNameError, setUserNameError] = React.useState("");
+  const [numberError, setNumberError] = React.useState("");
+  const [genderError, setGenderError] = React.useState("");
   const [passwordError, setPasswordError] = React.useState("");
+  const [addressError, setAddressError] = React.useState("");
 
     const isEnableSignUp = () =>(
         email != "" && userName != "" && password != "" && emailError == "" && userNameError == "" && passwordError == ""
@@ -34,7 +40,7 @@ const SignUp = ({navigation}) => {
       <View
         style={{
           flex: 1,
-          marginTop: SIZES.padding-10,
+          marginTop: SIZES.padding,
         }}
       >
         <FormInput
@@ -106,10 +112,79 @@ const SignUp = ({navigation}) => {
             </View>
           }
         />
+        <FormInput
+          label="Mobile Number"
+          placeholder="Enter your mobile number"
+          onChange={(text) => {
+            //Validate Phone Number
+            utils.isvalidaPhoneNumber(text, setNumberError);
+            setNumber(text)}}
+          errorMsg={numberError}
+          appendComponent={
+            <View
+              style={{
+                justifyContent: "center",
+              }}
+            >
+              <Image
+                source={
+                  number == "" || (number != "" && numberError == "")
+                    ? icons.correct
+                    : icons.cencel
+                }
+                style={{
+                  height: 20,
+                  width: 20,
+                  tintColor:
+                    userName == ""
+                      ? COLORS.gray
+                      : number != "" && numberError == ""
+                      ? COLORS.green
+                      : COLORS.red,
+                }}
+              />
+            </View>
+          }
+        />
+
+        
+<FormInput
+          label="Gender"
+          placeholder="Enter your gender"
+          onChange={(text) => setGender(text)}
+          errorMsg={genderError}
+          appendComponent={
+            <View
+              style={{
+                justifyContent: "center",
+              }}
+            >
+              <Image
+                source={
+                  gender == "" || (gender != "" && genderError == "")
+                    ? icons.correct
+                    : icons.cencel
+                }
+                style={{
+                  height: 20,
+                  width: 20,
+                  tintColor:
+                    gender == ""
+                      ? COLORS.gray
+                      : gender != "" && genderError == ""
+                      ? COLORS.green
+                      : COLORS.red,
+                }}
+              />
+            </View>
+          }
+        />
+      
 
         <FormInput
           label="Password"
           placeholder="Enter your password"
+          
           secureTextEntry={!showPass}
           autoCompleteType="password"
           onChange={(text) =>  {
@@ -141,6 +216,39 @@ const SignUp = ({navigation}) => {
                 }}
               />
             </TouchableOpacity>
+          }
+        />
+
+<FormInput
+          label="Address"
+          placeholder="Enter your address"
+          onChange={(text) => setAddress(text)}
+          errorMsg={addressError}
+          appendComponent={
+            <View
+              style={{
+                justifyContent: "center",
+
+              }}
+            >
+              <Image
+                source={
+                  address == "" || (address != "" && addressError == "")
+                    ? icons.correct
+                    : icons.cencel
+                }
+                style={{
+                  height: 20,
+                  width: 20,
+                  tintColor:
+                    address == ""
+                      ? COLORS.gray
+                      : address != "" && addressError == ""
+                      ? COLORS.green
+                      : COLORS.red,
+                }}
+              />
+            </View>
           }
         />
         {/* SignUp & Sign IN  */}
@@ -219,7 +327,7 @@ const SignUp = ({navigation}) => {
         alignItems: 'center',
         borderRadius: SIZES.radius,
         marginTop:SIZES.radius,
-        backgroundColor: COLORS.lightGray1,
+        backgroundColor: COLORS.gray2,
     }}
     icon={icons.google}
     iconPosition="LEFT"
@@ -229,7 +337,7 @@ const SignUp = ({navigation}) => {
     label="Sign In with Google"
     labelStyle={{
         marginLeft:SIZES.radius,
-        color: COLORS.darkGray2,
+        color: COLORS.white,
     }}
     onPress={() => console.log('Google')}
 />
